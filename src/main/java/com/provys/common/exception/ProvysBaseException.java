@@ -13,7 +13,7 @@ import org.checkerframework.checker.nullness.qual.Nullable;
  *
  * @author stehlik
  */
-@SuppressWarnings("AbstractClassExtendsConcreteClass")
+@SuppressWarnings({"AbstractClassExtendsConcreteClass", "OverrideThrowableToString"})
 public abstract class ProvysBaseException extends RuntimeException implements ProvysException {
 
   private static final long serialVersionUID = 7155232755615842135L;
@@ -81,11 +81,6 @@ public abstract class ProvysBaseException extends RuntimeException implements Pr
   @Override
   public Map<String, String> getParams() {
     return params;
-  }
-
-  @Override
-  public String getMessage() {
-    return castNonNull(super.getMessage()); // We do not allow creation without message
   }
 
   @Override
